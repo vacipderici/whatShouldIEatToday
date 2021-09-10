@@ -39,6 +39,14 @@ class _FoodPageState extends State<FoodPage> {
 
   int yemekNo = 1;
 
+  void refreshFoods() {
+    setState(() {
+      corbaNo = Random().nextInt(5) + 1;
+      yemekNo = Random().nextInt(5) + 1;
+      tatliNo = Random().nextInt(5) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -51,13 +59,7 @@ class _FoodPageState extends State<FoodPage> {
                 style: TextButton.styleFrom(
                   primary: Colors.white,
                 ),
-                onPressed: () {
-                  setState(() {
-                    corbaNo = Random().nextInt(5) + 1;
-                    yemekNo = Random().nextInt(5) + 1;
-                    tatliNo = Random().nextInt(5) + 1;
-                  });
-                },
+                onPressed: refreshFoods,
                 child: Image.asset('assets/corba_$corbaNo.jpg')),
           )),
           Expanded(
@@ -67,13 +69,7 @@ class _FoodPageState extends State<FoodPage> {
                 style: TextButton.styleFrom(
                   primary: Colors.white,
                 ),
-                onPressed: () {
-                  setState(() {
-                    corbaNo = Random().nextInt(5) + 1;
-                    yemekNo = Random().nextInt(5) + 1;
-                    tatliNo = Random().nextInt(5) + 1;
-                  });
-                },
+                onPressed: refreshFoods,
                 child: Image.asset('assets/yemek_$yemekNo.jpg')),
           )),
           Expanded(
@@ -83,13 +79,7 @@ class _FoodPageState extends State<FoodPage> {
                 style: TextButton.styleFrom(
                   primary: Colors.white,
                 ),
-                onPressed: () {
-                  setState(() {
-                    corbaNo = Random().nextInt(5) + 1;
-                    yemekNo = Random().nextInt(5) + 1;
-                    tatliNo = Random().nextInt(5) + 1;
-                  });
-                },
+                onPressed: refreshFoods,
                 child: Image.asset('assets/tatli_$tatliNo.jpg')),
           )),
         ],

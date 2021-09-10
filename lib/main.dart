@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(MyApp());
@@ -26,10 +27,18 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class FoodPage extends StatelessWidget {
+class FoodPage extends StatefulWidget {
+  @override
+  _FoodPageState createState() => _FoodPageState();
+}
+
+class _FoodPageState extends State<FoodPage> {
   int corbaNo = 1;
+
   int tatliNo = 1;
+
   int yemekNo = 1;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -43,8 +52,11 @@ class FoodPage extends StatelessWidget {
                   primary: Colors.white,
                 ),
                 onPressed: () {
-                  corbaNo = 5;
-                  print('Corbaya tıklandı');
+                  setState(() {
+                    corbaNo = Random().nextInt(5) + 1;
+                    yemekNo = Random().nextInt(5) + 1;
+                    tatliNo = Random().nextInt(5) + 1;
+                  });
                 },
                 child: Image.asset('assets/corba_$corbaNo.jpg')),
           )),
@@ -56,8 +68,11 @@ class FoodPage extends StatelessWidget {
                   primary: Colors.white,
                 ),
                 onPressed: () {
-                  yemekNo = 5;
-                  print('Yemek butonuna tıkladın');
+                  setState(() {
+                    corbaNo = Random().nextInt(5) + 1;
+                    yemekNo = Random().nextInt(5) + 1;
+                    tatliNo = Random().nextInt(5) + 1;
+                  });
                 },
                 child: Image.asset('assets/yemek_$yemekNo.jpg')),
           )),
@@ -69,7 +84,11 @@ class FoodPage extends StatelessWidget {
                   primary: Colors.white,
                 ),
                 onPressed: () {
-                  tatliNo = 5;
+                  setState(() {
+                    corbaNo = Random().nextInt(5) + 1;
+                    yemekNo = Random().nextInt(5) + 1;
+                    tatliNo = Random().nextInt(5) + 1;
+                  });
                 },
                 child: Image.asset('assets/tatli_$tatliNo.jpg')),
           )),

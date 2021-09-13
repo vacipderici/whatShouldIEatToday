@@ -39,6 +39,28 @@ class _FoodPageState extends State<FoodPage> {
 
   int yemekNo = 1;
 
+  List<String> corbaAdlari = [
+    'Mercimek',
+    'Tarhana',
+    'Tavuksuyu',
+    'Düğün Corbası',
+    'Yogurtlu Corba'
+  ];
+  List<String> yemekAdlari = [
+    'Karnıyarık',
+    'Mantı',
+    'Kuru Fasulye',
+    'İçli köfte',
+    'Izgara Balık'
+  ];
+
+  List<String> tatliAdlari = [
+    'Kadayıf',
+    'Baklava',
+    'Sütlac',
+    'Kazandibi',
+    'Dondurma'
+  ];
   void refreshFoods() {
     setState(() {
       corbaNo = Random().nextInt(5) + 1;
@@ -62,26 +84,61 @@ class _FoodPageState extends State<FoodPage> {
                 onPressed: refreshFoods,
                 child: Image.asset('assets/corba_$corbaNo.jpg')),
           )),
+          Text(
+            corbaAdlari[corbaNo - 1],
+            style: TextStyle(fontSize: 20),
+          ),
+          Container(
+            width: 200,
+            child: Divider(
+              height: 5,
+              color: Colors.black,
+            ),
+          ),
           Expanded(
-              child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: TextButton(
-                style: TextButton.styleFrom(
-                  primary: Colors.white,
-                ),
-                onPressed: refreshFoods,
-                child: Image.asset('assets/yemek_$yemekNo.jpg')),
-          )),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                  ),
+                  onPressed: refreshFoods,
+                  child: Image.asset('assets/yemek_$yemekNo.jpg')),
+            ),
+          ),
+          Text(
+            yemekAdlari[yemekNo - 1],
+            style: TextStyle(fontSize: 20),
+          ),
+          Container(
+            width: 200,
+            child: Divider(
+              height: 5,
+              color: Colors.black,
+            ),
+          ),
           Expanded(
-              child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: TextButton(
-                style: TextButton.styleFrom(
-                  primary: Colors.white,
-                ),
-                onPressed: refreshFoods,
-                child: Image.asset('assets/tatli_$tatliNo.jpg')),
-          )),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                  ),
+                  onPressed: refreshFoods,
+                  child: Image.asset('assets/tatli_$tatliNo.jpg')),
+            ),
+          ),
+          Text(
+            tatliAdlari[tatliNo - 1],
+            style: TextStyle(fontSize: 20),
+          ),
+          Container(
+            width: 200,
+            child: Divider(
+              height: 5,
+              color: Colors.black,
+            ),
+          ),
         ],
       ),
     );
